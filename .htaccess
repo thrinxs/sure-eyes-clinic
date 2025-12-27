@@ -1,0 +1,3 @@
+# Test if .htaccess works
+RewriteEngine On
+RewriteRule ^test$ test.html
