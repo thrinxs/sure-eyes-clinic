@@ -3,20 +3,16 @@ name: Deploy Website via FTP
 on:
   push:
     branches:
-      - main  # Trigger only on main branch
+      - main
 
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install lftp
-        run: sudo apt-get install -y lftp
-
-      - name: Deploy changed files via FTP
+      - name: FTP Deploy
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
