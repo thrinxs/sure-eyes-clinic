@@ -63,23 +63,35 @@
 </head>
 
 <body>
+        <!-- Holiday Notification Card -->
+<div id="holidayCard" class="holiday-card">
+    <div class="holiday-card-content">
+      <span class="close-btn" id="holidayClose">&times;</span>
+      <h2>Holiday Notice </h2>
+      <p>Sure-Eyes Clinic will be closed for the holidays from <strong class="date">24th December</strong> and will resume operations on <strong class="date">5th January</strong>.</p>
+      <br><h5>Wishing you a <strong class="wish">Happy New Year</strong> </h5>
+    </div>
+  </div>
 
     <header class="sticky top-0 z-50 bg-[var(--brand-green)] shadow-md">
         <div class="max-w-[var(--maxw)] mx-auto px-5 flex items-center justify-between py-3 relative">
 
             <!-- Left: Logo + Name + RC -->
-            <a href="index.php" class="flex items-center gap-3">
-                <img src="/assets/sureeyes-logo.png" alt="Sure Eyes Clinic Logo"
-                    class="w-11 h-11 rounded-[var(--radius)] bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-green-light)]">
-                <div class="flex flex-col leading-tight text-white">
-                    <span class="font-bold text-xl">Sure Eyes Clinic</span>
-                    <span class="font-medium text-sm">& Optical Services Ltd | RC - 8526455</span>
+            <div class="logo-container">
+                <a href="index" class="flex items-center gap-3">
+                    <img src="/assets/sureeyes-logo.png" alt="Sure Eyes Clinic Logo"
+                        class="w-11 h-11 rounded-[var(--radius)] bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-green-light)] logo-sparkle">
+                    
+                    <div class="flex flex-col leading-tight text-white site-name">
+                        <span class="font-bold text-xl">Sure Eyes Clinic</span>
+                        <span class="font-medium text-sm">& Optical Services Ltd | RC - 8526455</span>
+                    </div>
+                </a>
                 </div>
-            </a>
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-6">
-                <a href="index.php"
+                <a href="index"
                     class="text-white font-bold tracking-wide relative hover:after:w-full after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:w-0 after:transition-all">Home</a>
                 <a href="#about"
                     class="text-white font-bold tracking-wide relative hover:after:w-full after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:w-0 after:transition-all">About</a>
@@ -109,7 +121,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu"
             class="fixed top-0 left-0 w-3/4 max-w-xs h-full bg-[var(--brand-green)] flex flex-col p-16 gap-6 transform -translate-x-full opacity-0 transition-transform duration-500 z-40 md:hidden">
-            <a href="index.php"
+            <a href="index"
                 class="text-white font-bold text-lg relative hover:after:w-full after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:w-0 after:transition-all">Home</a>
             <a href="#about"
                 class="text-white font-bold text-lg relative hover:after:w-full after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:w-0 after:transition-all">About</a>
@@ -488,6 +500,36 @@
             menu.classList.toggle('active');
         });
     </script>
+    // Holiday Card Close
+<script>
+const holidayCard = document.getElementById('holidayCard');
+const holidayClose = document.getElementById('holidayClose');
+
+holidayClose.addEventListener('click', () => {
+    holidayCard.style.display = 'none';
+});
+
+// Auto-hide after 10 seconds (optional)
+setTimeout(() => {
+    if(holidayCard) holidayCard.style.display = 'none';
+}, 10000);
+
+// Create snowflakes
+const snowContainer = document.getElementById('snow-container');
+const snowflakeCount = 25;
+
+for(let i = 0; i < snowflakeCount; i++) {
+    const snow = document.createElement('div');
+    snow.classList.add('snowflake');
+    snow.style.left = Math.random() * 100 + 'vw';
+    snow.style.fontSize = (10 + Math.random() * 20) + 'px';
+    snow.style.animationDuration = (5 + Math.random() * 10) + 's';
+    snow.style.opacity = Math.random();
+    snow.innerHTML = '❄'; // Snowflake character
+    snowContainer.appendChild(snow);
+}
+
+</script>
 </body>
 
 </html>

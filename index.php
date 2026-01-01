@@ -113,16 +113,14 @@
 <body>
     <!-- Holiday Notification Card -->
 <div id="holidayCard" class="holiday-card">
-    <div class="holiday-card-content">
+    <div class="holiday-card-hidden" id=""holidayCard>
       <span class="close-btn" id="holidayClose">&times;</span>
-      <h2>🎄 Holiday Notice 🎄</h2>
-      <p>Sure-Eyes Clinic will be closed for the holidays from <strong class="date">24th December</strong> and will resume operations on <strong class="date">5th January</strong>.</p>
-      <br><h5>Wishing you a <strong class="wish">Merry Christmas</strong> and a <strong class="wish">Happy New Year</strong> in advance</h5>
+      <h2 id="holidayTitle">Holiday Notice</h2>
+      <p id="holidayMessage">Sure-Eyes Clinic will be closed for the holidays from <strong class="date">24th December</strong> and will resume operations on <strong class="date">5th January</strong>.</p>
+      <br><h5 id="holidayFooter">Wishing you a <strong class="wish">Happy New Year</strong> </h5>
     </div>
   </div>
   
-    <!-- Snowflake Container -->
-    <div id="snow-container"></div>
 
     <header class="sticky top-0 z-50 bg-[var(--brand-green)] shadow-md">
         <div class="max-w-[var(--maxw)] mx-auto px-5 flex items-center justify-between py-3 relative">
@@ -132,7 +130,7 @@
             <a href="index.php" class="flex items-center gap-3">
                 <img src="/assets/sureeyes-logo.png" alt="Sure Eyes Clinic Logo"
                     class="w-11 h-11 rounded-[var(--radius)] bg-gradient-to-br from-[var(--brand-green)] to-[var(--brand-green-light)] logo-sparkle">
-                <img src="/assets/christmas-hat.png" alt="Christmas Hat" class="christmas-hat">
+              
                 <div class="flex flex-col leading-tight text-white site-name">
                     <span class="font-bold text-xl">Sure Eyes Clinic</span>
                     <span class="font-medium text-sm">& Optical Services Ltd | RC - 8526455</span>
