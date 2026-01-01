@@ -3,23 +3,23 @@ name: Deploy Website via FTP
 on:
   push:
     branches:
-      - main
+      - main  # Runs this workflow on pushes to main branch
 
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: FTP Deploy
+      - name: Sync files via FTP
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          # Only upload changes, delete removed files on server
           lftp -c "
-            open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST;
-            mirror -R --only-newer --delete ./ ./public_html/
+          open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST;
+          mirror -R --only-newer --delete ./ ./public_html/
           "
